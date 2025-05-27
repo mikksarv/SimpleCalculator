@@ -19,10 +19,10 @@ public class SimpleCalculator {
         return (double) firstNumber / secondNumber;
     }
 
-    private static int getFirstNumber(Scanner input) {
+    static int getNumber(Scanner input) {
         while (true) {
             try {
-                System.out.println("Enter first number");
+                System.out.println("Enter number");
                 int firstNumber = input.nextInt();
                 input.nextLine();
                 return firstNumber;
@@ -33,20 +33,7 @@ public class SimpleCalculator {
         }
     }
 
-    private static int getSecondNumber(Scanner input) {
-        while (true) {
-            try {
-                System.out.println("Enter second number");
-                return input.nextInt();
-            } catch (InputMismatchException _) {
-                System.out.println("The nr is not valid");
-                input.nextLine();
-            }
-        }
-
-    }
-
-    private static String getString(Scanner input) {
+    static String getString(Scanner input) {
         while (true) {
             System.out.println("Choose the operation +,-,* or / to continue");
             String operator = input.nextLine();
@@ -58,7 +45,7 @@ public class SimpleCalculator {
         }
     }
 
-    private static void mathOperations(String operator, int firstNumber, int secondNumber) {
+    static void mathOperations(String operator, int firstNumber, int secondNumber) {
         switch (operator) {
             case "+" -> System.out.println("The answer is: " + add(firstNumber, secondNumber));
             case "-" -> System.out.println("The answer is: " + subtract(firstNumber, secondNumber));
@@ -71,14 +58,9 @@ public class SimpleCalculator {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        int firstNumber = getFirstNumber(input);
+        int firstNumber = getNumber(input);
         String operator = getString(input);
-        int secondNumber = getSecondNumber(input);
+        int secondNumber = getNumber(input);
         mathOperations(operator, firstNumber, secondNumber);
     }
 }
-
-
-
-
-
